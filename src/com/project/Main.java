@@ -2,7 +2,8 @@ package com.project;
 
 public class Main {
 
+    public static Interface example;
     public static void main(String[] args) {
-	// write your code here
+	 example = new Interface();
     }
 }
