@@ -89,3 +89,15 @@ class Reto extends JFrame implements ActionListener {
         }
     }
 }
+
+class Tunel{
+
+}
+
+class Trampa{
+
+}
+
+class Lista{
+    
+}
