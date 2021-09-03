@@ -13,7 +13,7 @@ public class Main {
     public static void main(String[] args) {
 	 example = new Interface();
 	 reto = new Reto();
-	 reto.start(example.pane);
+	 reto.start(example.pane,50,50);
     }
 }
 class Reto extends JFrame implements ActionListener {
@@ -23,17 +23,15 @@ class Reto extends JFrame implements ActionListener {
     JTextField answer;
     JButton ask;
     Random rand = new Random();
-    int a,b,op,res,x,y;
+    int a,b,op,res;
     String reto="";
 
-    public void start(JPanel juego) {
+    public void start(JPanel juego, int x, int y) {
         op = rand.nextInt(5-1) + 1;
         a = rand.nextInt(51-1) + 1;
         b = rand.nextInt(51-1) + 1;
-        x=50;
-        y=50;
         space = new JButton("Ok");
-        space.setSize(50,50);
+        space.setSize(75,75);
         space.setLocation(x,y);
         juego.add(space);
 
@@ -46,7 +44,6 @@ class Reto extends JFrame implements ActionListener {
         msgBox.setLayout(null);
         msgBox.setBackground(Color.decode("#bad5ff"));
         setResizable(false);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         if (op==1){
             reto=a+"+"+b;
@@ -99,5 +96,5 @@ class Trampa{
 }
 
 class Lista{
-    
+
 }

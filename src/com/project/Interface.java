@@ -12,7 +12,7 @@ public class Interface extends JFrame {
 
         setTitle("Math Socket");
         setVisible(true);
-        setSize(800,600 );
+        setSize(800,700 );
         pane = new JPanel();
         this.getContentPane().add(pane);
         pane.setLayout(null);
