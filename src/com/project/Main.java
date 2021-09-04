@@ -88,16 +88,40 @@ class Reto extends JFrame implements ActionListener {
 }
 
 class Tunel{
-    Random forward;
+    Random r;
+    int forward;
 
+    public void start() {
+        r = new Random();
+        forward = 1 + r.nextInt(3);
+        JOptionPane.showMessageDialog(null,"Avance: "+String.valueOf(forward)+"esapcios");
+    }
+
+    
+
+//    public void getCoords(){
+//
+//    }
 
 }
 
-class Trampa{
+class Trampa {
+    Random r;
+    int backward;
 
+
+    public void start() {
+        r = new Random();
+        backward = 1 + r.nextInt(3);
+        JOptionPane.showMessageDialog(null, "Retroceda: " + String.valueOf(backward) + "esapcios");
+
+
+//    public void getCoords(){ // coordenas de la casilla de la casilla donde se moverá el jugador
+//
+//    }
+    }
 }
+    class Lista {
 
-class Lista{
-
-}
+    }
 
