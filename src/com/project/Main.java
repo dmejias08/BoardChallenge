@@ -88,6 +88,8 @@ class Reto extends JFrame implements ActionListener {
 }
 
 class Tunel{
+    Random forward;
+
 
 }
 
@@ -98,3 +100,4 @@ class Trampa{
 class Lista{
 
 }
+
