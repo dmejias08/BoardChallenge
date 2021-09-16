@@ -34,7 +34,12 @@ public class DoubleLinkedList {
             this.head = new Node(data);
             this.tail = this.head;
         }else{
-            
+            Node newNode = new Node(data);
+            this.head.previous = newNode;
+            newNode.next = this.head;
+            newNode.previous = null;
+            this.head = newNode;
+            this.size ++;
         }
     }
     public Node deleteFirst(){
@@ -56,7 +61,6 @@ public class DoubleLinkedList {
             current = current.next;
         }
     }
-
     public Node getHead() {
         if (this.head == null && this.tail == null) {
             return null;
