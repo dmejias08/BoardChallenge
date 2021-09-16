@@ -15,7 +15,7 @@ public class Reto extends JFrame implements ActionListener {
     JTextField answer;
     JButton ask;
     Random rand = new Random();
-    int x,y,a,b,op,res;
+    public static int x,y,a,b,op,res;
     String reto="";
 
 

@@ -5,7 +5,7 @@ public class Lista {
     Tunel tunel;
     Reto reto;
     Trampa trampa;
-    DoubleLinkedList elements;
+    public static DoubleLinkedList elements;
     Random rand = new Random();
     int x,y,casilla,tu,tr,re;
 
@@ -54,5 +54,9 @@ public class Lista {
                 y=y+150;
             }
         }
+    }
+    public void moveForward(int spaces,int x, int y, Node node){
+
+
     }
 }
