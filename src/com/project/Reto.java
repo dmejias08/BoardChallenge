@@ -7,7 +7,8 @@ import java.awt.event.ActionListener;
 import java.util.Random;
 
 public class Reto extends JFrame implements ActionListener {
-    JButton space;
+//    JButton space;
+    ImageIcon imageClass;
     JPanel juego;
     JPanel msgBox;
     JLabel challenge;
@@ -17,11 +18,13 @@ public class Reto extends JFrame implements ActionListener {
     int x,y,a,b,op,res;
     String reto="";
 
+
     public void set() {
-        space = new JButton("Reto");
-        space.setSize(75,75);
-        space.setLocation(x,y);
-        juego.add(space);
+        imageClass = new ImageIcon("src"+Main.divider+"Image_Datos"+Main.divider+"icon_exit.png");
+        JLabel place = new JLabel(imageClass);
+        place.setSize(75,75);
+        place.setLocation(x,y);
+        juego.add(place);
         juego.repaint();
     }
 

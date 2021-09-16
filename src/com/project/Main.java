@@ -10,6 +10,7 @@ public class Main {
     public static Interface example;
     public static Reto reto;
     public static  Lista lista;
+    public static String divider = "/";
 
     public static void main(String[] args) {
 	 example = new Interface();
