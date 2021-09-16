@@ -7,6 +7,8 @@ public class Node {
     public Node next;
     public Node previous;
 
+    
+
     public Node(Object data){ // No entiendo que hace este método
         this.next = null;
         this.data = data;
