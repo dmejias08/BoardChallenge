@@ -15,7 +15,7 @@ public class Tunel {
         space.setSize(75,75);
         space.setLocation(x,y);
         space.setBackground(Color.RED);
-//        space.setEnabled(false);
+        space.setEnabled(false);
         juego.add(space);
         juego.repaint();
     }
