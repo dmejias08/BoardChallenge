@@ -2,58 +2,50 @@ package com.project;
 
 public class DoubleLinkedList {
     private Node head;
-    private int size;
     private Node tail;
+    private int size;
 
     public void DoubleLinkedList(){
         this.head = null;
-        this.size = 0;
         this.tail = null;
+        this.size = 0;
     }
-    public boolean isEmpty(){
-        if (this.head == null && this.tail == null){
-            return true;
-        }else {
-            return false;
-        }
+
+    public boolean isEmpty() {
+        return this.head == null;
     }
+
     public int size(){
         return this.size;
     }
 
     public void insertLast(Object data){
-        Node newNode = new Node(data); //crea nodo
-        this.tail.next = newNode;
-        newNode.previous = this.tail;// al siguiete le guarda el primero
-        newNode.next = null;
-        this.tail = newNode; // se guarda en la cabeza actual
+        Node newNode = new Node(data);
+        newNode.previous = this.tail;
+        if (this.isEmpty()) {
+            this.head = newNode;
+        } else {
+            if (this.size==1) {
+                this.head.next = newNode;
+            }
+            this.tail.next = newNode;
+        }
+        this.tail = newNode;
         this.size++;
     }
-    public void insertFirst(Object data){
-        if(this.head == null && this.tail == null) {
-            this.head = new Node(data);
-            this.tail = this.head;
-        }else{
-            Node newNode = new Node(data);
-            this.head.previous = newNode;
-            newNode.next = this.head;
-            newNode.previous = null;
-            this.head = newNode;
-            this.size ++;
-        }
-    }
+
     public Node deleteFirst(){
-        if (this.head != null){
+        if (this.tail != null) {
             Node temp = this.head;
             this.head = this.head.next;
             this.head.previous = null;
             this.size--;
             return temp;
-
-        }else {
+        } else {
             return null;
         }
     }
+
     public void displayList(){
         Node current = this.head;
         while (current != null){
@@ -62,7 +54,7 @@ public class DoubleLinkedList {
         }
     }
     public Node getHead() {
-        if (this.head == null && this.tail == null) {
+        if (this.head == null) {
             return null;
         }else {
             return this.head;

@@ -8,23 +8,27 @@ import java.util.Random;
 
 public class Reto extends JFrame implements ActionListener {
     JButton space;
+    JPanel juego;
     JPanel msgBox;
     JLabel challenge;
     JTextField answer;
     JButton ask;
     Random rand = new Random();
-    int a,b,op,res;
+    int x,y,a,b,op,res;
     String reto="";
 
-    public void start(JPanel juego, int x, int y) {
-        op = rand.nextInt(5-1) + 1;
-        a = rand.nextInt(51-1) + 1;
-        b = rand.nextInt(51-1) + 1;
-        space = new JButton("Ok");
+    public void set() {
+        space = new JButton("Reto");
         space.setSize(75,75);
         space.setLocation(x,y);
         juego.add(space);
+        juego.repaint();
+    }
 
+    public void start() {
+        op = rand.nextInt(5-1) + 1;
+        a = rand.nextInt(51-1) + 1;
+        b = rand.nextInt(51-1) + 1;
 
         setTitle("Reto");
         setVisible(true);

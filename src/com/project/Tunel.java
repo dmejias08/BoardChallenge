@@ -4,8 +4,17 @@ import javax.swing.*;
 import java.util.Random;
 
 public class Tunel {
+    JButton space;
+    JPanel juego;
     Random r;
-    int forward;
+    int forward,x,y;
+
+    public void set() {
+        space = new JButton("Tunel");
+        space.setSize(75,75);
+        space.setLocation(x,y);
+        juego.add(space);
+    }
 
     public void start() {
         r = new Random();
