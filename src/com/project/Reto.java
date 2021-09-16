@@ -20,7 +20,7 @@ public class Reto extends JFrame implements ActionListener {
 
 
     public void set() {
-        imageClass = new ImageIcon("src"+Main.divider+"Images_Datos"+Main.divider+"icon_exit.png");
+        imageClass = new ImageIcon("src"+Main.divider+"Images_Datos"+Main.divider+"reto.png");
         place = new JLabel(imageClass);
         place.setSize(75,75);
         place.setLocation(x,y);
