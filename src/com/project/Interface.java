@@ -8,9 +8,11 @@ import java.util.Random;
 
 public class Interface extends JFrame implements ActionListener{
 
+    ImageIcon imageClass;
     public JPanel pane;
     public JButton dice;
     public JLabel labelDice;
+    public static JLabel img;
     public int dice_result;
 
     public Interface(){
@@ -34,6 +36,13 @@ public class Interface extends JFrame implements ActionListener{
         labelDice.setLocation(700, 60);
         labelDice.setFont(new Font("Girassol",Font.PLAIN,18));
         pane.add(labelDice);
+
+
+        imageClass = new ImageIcon("src"+Main.divider+"Images_Datos"+Main.divider+"icon_exit.png");
+        img = new JLabel(imageClass);
+        img.setSize(75,75);
+        img.setLocation(10,10);
+        pane.add(img);
 
         setResizable(false);
         pane.repaint();

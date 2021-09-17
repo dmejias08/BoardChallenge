@@ -60,7 +60,8 @@ public class DoubleLinkedList {
 
     public void moveForward(int numberDice, int jugador){
         if(this.jugador1 == null && this.jugador2 == null){
-            this.jugador2 = this.jugador1 = this.head;
+            this.jugador2 = this.head;
+            this.jugador1= this.head;
             numberDice --;
         }
         Node current = null;
@@ -80,25 +81,32 @@ public class DoubleLinkedList {
         }
         int x,y;
         try{
-            Tunel data = (Tunel) current.getData();
-            data.start();
-            x = data.x;
-            y = data.y;
+            Tunel dataTu = (Tunel) current.getData();
+            dataTu.start();
+            x = dataTu.x;
+            y = dataTu.y;
+            Interface.img.setLocation(x,y);
         } catch (Exception e) {
             try{
-                Reto data = (Reto) current.getData();
-                data.start();
-                x = data.x;
-                y = data.y;
+                Reto dataRe = (Reto) current.getData();
+                dataRe.start();
+                x = dataRe.x;
+                y = dataRe.y;
+                Interface.img.setLocation(x,y);
+
             }catch (Exception n){
-                Trampa data = (Trampa) current.getData();
-                data.start();
-                x = data.x;
-                y = data.y;
+                Trampa dataTr = (Trampa) current.getData();
+                dataTr.start();
+                x = dataTr.x;
+                y = dataTr.y;
+                Interface.img.setLocation(x,y);
+
             }
         }
+        System.out.println(String.valueOf(x)+","+String.valueOf(y));
         // con if selecciona que jugador va a mover y lo mueve a x,y
     }
+
 
     public Node getHead() {
         if (this.head == null) {
