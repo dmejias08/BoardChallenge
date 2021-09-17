@@ -8,7 +8,7 @@ public class Tunel {
     JButton space;
     JPanel juego;
     Random r;
-    public static int forward,x,y;
+    public int forward,x,y;
 
     public void set() {
         space = new JButton("Tunel");

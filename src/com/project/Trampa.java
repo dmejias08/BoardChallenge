@@ -7,7 +7,7 @@ public class Trampa {
     JButton space;
     JPanel juego;
     Random r;
-    public static int backward,x,y;
+    public  int backward,x,y;
 
     public void set() {
         space = new JButton("Trampa");
