@@ -46,6 +46,7 @@ public class Interface extends JFrame implements ActionListener{
         Random diceR = new Random();
         dice_result = 1 + diceR.nextInt(4);
         labelDice.setText(String.valueOf(dice_result));
+        Main.lista.elements.moveForward(dice_result,1);
 //        try {
 //            Thread.sleep(1000);
 //            labelDice.setText("");

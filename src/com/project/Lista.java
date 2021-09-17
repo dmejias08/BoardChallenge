@@ -9,6 +9,8 @@ public class Lista {
     Random rand = new Random();
     int x,y,casilla,tu,tr,re;
 
+
+
     public void create() {
         elements = new DoubleLinkedList();
         x=50;

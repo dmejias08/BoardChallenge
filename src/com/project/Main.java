@@ -17,6 +17,7 @@ public class Main {
 	 lista = new Lista();
 	 lista.create();
 	 example.repaint();
+
     }
 }
 
