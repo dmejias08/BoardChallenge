@@ -100,7 +100,6 @@ public class DoubleLinkedList {
                 x = dataTr.x;
                 y = dataTr.y;
                 Interface.img.setLocation(x,y);
-
             }
         }
         System.out.println(String.valueOf(x)+","+String.valueOf(y));
