@@ -28,7 +28,7 @@ public class Interface extends JFrame implements ActionListener{
         dice = new JButton("Dice");
         dice.setSize(60,40);
         dice.setLocation(700,30);
-        dice.addActionListener( this);
+        dice.addActionListener( this::actionPerformed);
         pane.add(dice);
 
         labelDice = new JLabel("");
@@ -52,10 +52,12 @@ public class Interface extends JFrame implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        Random diceR = new Random();
-        dice_result = 1 + diceR.nextInt(4);
-        labelDice.setText(String.valueOf(dice_result));
-        Main.lista.elements.moveForward(dice_result,1);
+        if (e.getSource() == dice) {
+            Random diceR = new Random();
+            dice_result = 1 + diceR.nextInt(4);
+            labelDice.setText(String.valueOf(dice_result));
+            Main.lista.elements.moveForward(dice_result, 1);
+        }
 //        try {
 //            Thread.sleep(1000);
 //            labelDice.setText("");

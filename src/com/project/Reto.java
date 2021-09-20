@@ -83,12 +83,15 @@ public class Reto extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        try {
-            res = Double.parseDouble(answer.getText());
-            //implementar socket servidor
-        } catch (NumberFormatException n) {
-            JOptionPane.showMessageDialog(null,"Sólo se permite la entrada de enteros");
-            answer.setText(null);
+        if (e.getSource() == ask) {
+            try {
+                System.out.println("Ok");
+                res = Double.parseDouble(answer.getText());
+                Main.lista.elements.client.send(retoNum, res);
+            } catch (NumberFormatException n) {
+                JOptionPane.showMessageDialog(null, "Sólo se permite la entrada de enteros");
+                answer.setText(null);
+            }
         }
     }
 }

@@ -12,7 +12,7 @@ public class Player {
     public void Player(){
         this.x = 0;
         this.y = 0;
-        this.current =  Lista.elements.getHead();
+        this.current =  Main.lista.elements.getHead();
     }
     public void set(){
         imageClass = new ImageIcon("src"+Main.divider+"Images_Datos"+Main.divider+"icon_exit.png");

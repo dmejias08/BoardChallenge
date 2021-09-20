@@ -1,6 +1,7 @@
 package com.project;
 
 public class DoubleLinkedList {
+    public cliente client;
     private Node head;
     private Node tail;
     public Node jugador1;
@@ -59,6 +60,7 @@ public class DoubleLinkedList {
     }
 
     public void moveForward(int numberDice, int jugador){
+        client = new cliente();
         if(this.jugador1 == null && this.jugador2 == null){
             this.jugador2 = this.head;
             this.jugador1= this.head;
@@ -89,12 +91,23 @@ public class DoubleLinkedList {
             y = dataTu.y;
             Interface.img.setLocation(x,y);
             moveTuTr(dataTu.start(),jugador,true);
+
         } else if (current.getData() instanceof Reto){
             Reto dataRe = (Reto) current.getData();
             x = dataRe.x;
             y = dataRe.y;
             Interface.img.setLocation(x,y);
             dataRe.start();
+            client.send(dataRe.retoNum,dataRe.res);
+            if (client.isAcierto()==false) {
+                if (jugador == 1 && jugador1.next != null) {
+                    moveTuTr(1, 2, false);
+                } else if (jugador == 2 && jugador2.next != null) {
+                    moveTuTr(1, 1, false);
+                }
+                moveTuTr(1, jugador, true);
+            }
+
         } else if (current.getData() instanceof Trampa){
             Trampa dataTr = (Trampa) current.getData();
             x = dataTr.x;

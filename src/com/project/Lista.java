@@ -5,11 +5,9 @@ public class Lista {
     Tunel tunel;
     Reto reto;
     Trampa trampa;
-    public static DoubleLinkedList elements;
+    public DoubleLinkedList elements;
     Random rand = new Random();
     int x,y,casilla,tu,tr,re;
-
-
 
     public void create() {
         elements = new DoubleLinkedList();
