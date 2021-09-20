@@ -24,7 +24,6 @@ public class Lista {
                 tunel = new Tunel();
                 tunel.x=x;
                 tunel.y=y;
-                System.out.println(String.valueOf(x)+","+String.valueOf(y));
                 tunel.juego=Main.example.pane;
                 tunel.set();
                 elements.insertLast(tunel);
@@ -35,7 +34,6 @@ public class Lista {
                 trampa = new Trampa();
                 trampa.x=x;
                 trampa.y=y;
-                System.out.println(String.valueOf(x)+","+String.valueOf(y));
                 trampa.juego=Main.example.pane;
                 trampa.set();
                 elements.insertLast(trampa);
@@ -46,7 +44,6 @@ public class Lista {
                 reto = new Reto();
                 reto.x=x;
                 reto.y=y;
-                System.out.println(String.valueOf(x)+","+String.valueOf(y));
                 reto.juego=Main.example.pane;
                 reto.set();
                 elements.insertLast(reto);

@@ -15,7 +15,8 @@ public class Reto extends JFrame implements ActionListener {
     JTextField answer;
     JButton ask;
     Random rand = new Random();
-    public  int x,y,a,b,op,res;
+    public  int x,y,a,b,op;
+    public double retoNum, res;
     String reto="";
 
 
@@ -47,15 +48,19 @@ public class Reto extends JFrame implements ActionListener {
 
         if (op==1){
             reto=a+"+"+b;
+            retoNum=a+b;
         }
         if (op==2){
             reto=a+"-"+b;
+            retoNum=a-b;
         }
         if (op==3){
             reto=a+"/"+b;
+            retoNum=a/b;
         }
         if (op==4){
             reto=a+"*"+b;
+            retoNum=a*b;
         }
 
         challenge = new JLabel("¿Cuál es el valor de "+reto+"?");
@@ -79,7 +84,8 @@ public class Reto extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         try {
-            res = Integer.parseInt(answer.getText());
+            res = Double.parseDouble(answer.getText());
+            //implementar socket servidor
         } catch (NumberFormatException n) {
             JOptionPane.showMessageDialog(null,"Sólo se permite la entrada de enteros");
             answer.setText(null);

@@ -15,15 +15,11 @@ public class Trampa {
         space.setLocation(x,y);
         juego.add(space);
     }
-    public void start() {
+    public int start() {
         r = new Random();
         backward = 1 + r.nextInt(3);
-        JOptionPane.showMessageDialog(null, "Retroceda: " + String.valueOf(backward) + "esapcios");
-
-
-//    public void getCoords(){ // coordenas de la casilla de la casilla donde se moverá el jugador
-//
-//    }
+        JOptionPane.showMessageDialog(null, "Retroceda: " + String.valueOf(backward) + " esapcios");
+        return backward;
     }
 }
 

@@ -20,17 +20,10 @@ public class Tunel {
         juego.repaint();
     }
 
-    public void start() {
+    public int start() {
         r = new Random();
         forward = 1 + r.nextInt(3);
-        JOptionPane.showMessageDialog(null,"Avance: "+String.valueOf(forward)+"esapcios");
+        JOptionPane.showMessageDialog(null,"Avance: "+String.valueOf(forward)+" esapcios");
+        return forward;
     }
-
-
-
-//    public void getCoords(){
-//
-//    }
-
-
 }

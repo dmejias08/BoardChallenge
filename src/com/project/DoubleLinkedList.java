@@ -71,6 +71,9 @@ public class DoubleLinkedList {
             current = this.jugador2;
         }
         while (numberDice > 0) {
+            if (current.next==null){
+                break;
+            }
             current = current.next;
             numberDice --;
         }
@@ -80,30 +83,70 @@ public class DoubleLinkedList {
             this.jugador2 = current;
         }
         int x,y;
-        try{
+        if (current.getData() instanceof Tunel){
             Tunel dataTu = (Tunel) current.getData();
-            dataTu.start();
             x = dataTu.x;
             y = dataTu.y;
             Interface.img.setLocation(x,y);
-        } catch (Exception e) {
-            try{
-                Reto dataRe = (Reto) current.getData();
-                dataRe.start();
-                x = dataRe.x;
-                y = dataRe.y;
-                Interface.img.setLocation(x,y);
-
-            }catch (Exception n){
-                Trampa dataTr = (Trampa) current.getData();
-                dataTr.start();
-                x = dataTr.x;
-                y = dataTr.y;
-                Interface.img.setLocation(x,y);
-            }
+            moveTuTr(dataTu.start(),jugador,true);
+        } else if (current.getData() instanceof Reto){
+            Reto dataRe = (Reto) current.getData();
+            x = dataRe.x;
+            y = dataRe.y;
+            Interface.img.setLocation(x,y);
+            dataRe.start();
+        } else if (current.getData() instanceof Trampa){
+            Trampa dataTr = (Trampa) current.getData();
+            x = dataTr.x;
+            y = dataTr.y;
+            Interface.img.setLocation(x,y);
+            moveTuTr(dataTr.start(),jugador,false);
         }
-        System.out.println(String.valueOf(x)+","+String.valueOf(y));
-        // con if selecciona que jugador va a mover y lo mueve a x,y
+    }
+
+    public void moveTuTr(int number, int jugador, boolean forward){
+        Node current = null;
+        if (jugador == 1) {
+            current = this.jugador1;
+        } else if (jugador == 2) {
+            current = this.jugador2;
+        }
+        while (number > 0) {
+            if (forward){
+                if (current.next==null){
+                    break;
+                }
+                current = current.next;
+            } else if (forward==false) {
+                if (current.previous==null){
+                    break;
+                }
+                current = current.previous;
+            }
+            number --;
+        }
+        if (jugador == 1) {
+            this.jugador1 = current;
+        } else if (jugador == 2) {
+            this.jugador2 = current;
+        }
+        int x,y;
+        if (current.getData() instanceof Tunel){
+            Tunel dataTu = (Tunel) current.getData();
+            x = dataTu.x;
+            y = dataTu.y;
+            Interface.img.setLocation(x,y);
+        } else if (current.getData() instanceof Reto){
+            Reto dataRe = (Reto) current.getData();
+            x = dataRe.x;
+            y = dataRe.y;
+            Interface.img.setLocation(x,y);
+        } else if (current.getData() instanceof Trampa){
+            Trampa dataTr = (Trampa) current.getData();
+            x = dataTr.x;
+            y = dataTr.y;
+            Interface.img.setLocation(x,y);
+        }
     }
 
 
