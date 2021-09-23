@@ -116,6 +116,7 @@ public class DoubleLinkedList {
             moveTuTr(dataTr.start(),jugador,false);
         }
     }
+    "hola"
 
     public void moveTuTr(int number, int jugador, boolean forward){
         Node current = null;
