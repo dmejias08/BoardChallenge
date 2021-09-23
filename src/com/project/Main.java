@@ -8,15 +8,21 @@ import java.util.Random;
 
 public class Main {
     public static Interface example;
+    public static Home home;
     public static Reto reto;
     public static  Lista lista;
     public static String divider = "/";
 
     public static void main(String[] args) {
-	 example = new Interface();
-	 lista = new Lista();
-	 lista.create();
-	 example.repaint();
+
+        home = new Home();
+        example = new Interface();
+        example.setVisible(false);
+        //example = new Interface();
+        lista = new Lista();
+        lista.create();
+        home.repaint();
+        //example.repaint();
 
     }
 }
