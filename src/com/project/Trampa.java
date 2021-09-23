@@ -4,13 +4,15 @@ import javax.swing.*;
 import java.util.Random;
 
 public class Trampa {
-    JButton space;
+    JLabel space;
     JPanel juego;
     Random r;
+    ImageIcon imgTunel;
     public  int backward,x,y;
 
     public void set() {
-        space = new JButton("Trampa");
+        imgTunel = new ImageIcon("src/Images_Datos/trampa.png");
+        space = new JLabel(imgTunel);
         space.setSize(75,75);
         space.setLocation(x,y);
         juego.add(space);

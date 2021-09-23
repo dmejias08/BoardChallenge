@@ -5,19 +5,18 @@ import java.awt.*;
 import java.util.Random;
 
 public class Tunel {
-    JButton space;
+    JLabel space;
     JPanel juego;
     Random r;
+    ImageIcon imgTrampa;
     public int forward,x,y;
 
     public void set() {
-        space = new JButton("Tunel");
+        imgTrampa = new ImageIcon("src/Images_Datos/tunel.png");
+        space = new JLabel(imgTrampa);
         space.setSize(75,75);
         space.setLocation(x,y);
-        space.setBackground(Color.RED);
-        space.setEnabled(false);
         juego.add(space);
-        juego.repaint();
     }
 
     public int start() {

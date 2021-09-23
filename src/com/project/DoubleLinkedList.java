@@ -89,14 +89,14 @@ public class DoubleLinkedList {
             Tunel dataTu = (Tunel) current.getData();
             x = dataTu.x;
             y = dataTu.y;
-            Interface.img.setLocation(x,y);
+            Interface.jug1.setLocation(x,y);
             moveTuTr(dataTu.start(),jugador,true);
 
         } else if (current.getData() instanceof Reto){
             Reto dataRe = (Reto) current.getData();
             x = dataRe.x;
             y = dataRe.y;
-            Interface.img.setLocation(x,y);
+            Interface.jug1.setLocation(x,y);
             dataRe.start();
             client.send(dataRe.retoNum,dataRe.res);
             if (client.isAcierto()==false) {
@@ -112,7 +112,7 @@ public class DoubleLinkedList {
             Trampa dataTr = (Trampa) current.getData();
             x = dataTr.x;
             y = dataTr.y;
-            Interface.img.setLocation(x,y);
+            Interface.jug1.setLocation(x,y);
             moveTuTr(dataTr.start(),jugador,false);
         }
     }
@@ -148,17 +148,17 @@ public class DoubleLinkedList {
             Tunel dataTu = (Tunel) current.getData();
             x = dataTu.x;
             y = dataTu.y;
-            Interface.img.setLocation(x,y);
+            Interface.jug1.setLocation(x,y);
         } else if (current.getData() instanceof Reto){
             Reto dataRe = (Reto) current.getData();
             x = dataRe.x;
             y = dataRe.y;
-            Interface.img.setLocation(x,y);
+            Interface.jug1.setLocation(x,y);
         } else if (current.getData() instanceof Trampa){
             Trampa dataTr = (Trampa) current.getData();
             x = dataTr.x;
             y = dataTr.y;
-            Interface.img.setLocation(x,y);
+            Interface.jug1.setLocation(x,y);
         }
     }
 

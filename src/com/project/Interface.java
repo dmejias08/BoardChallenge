@@ -9,11 +9,13 @@ import java.util.Random;
 public class Interface extends JFrame implements ActionListener{
 
     ImageIcon imagJug1;
+    ImageIcon imagJug2;
     public JPanel pane;
     public JButton dice;
     public JButton back;
     public JLabel labelDice;
-    public static JLabel img;
+    public static JLabel jug2;
+    public static JLabel jug1;
     public int dice_result;
     public ImageIcon imagBack;
 
@@ -50,10 +52,16 @@ public class Interface extends JFrame implements ActionListener{
 
 
         imagJug1= new ImageIcon("src/Images_Datos/fichajugador.png");
-        img = new JLabel(imagJug1);
-        img.setSize(30,30);
-        img.setLocation(10,10);
-        pane.add(img);
+        jug1 = new JLabel(imagJug1);
+        jug1.setSize(30,30);
+        jug1.setLocation(10,10);
+        pane.add(jug1);
+
+        imagJug2= new ImageIcon("src/Images_Datos/fichajugador1.png");
+        jug2 = new JLabel(imagJug2);
+        jug2.setSize(30,30);
+        jug2.setLocation(10,40);
+        pane.add(jug2);
 
         setResizable(false);
         pane.repaint();
