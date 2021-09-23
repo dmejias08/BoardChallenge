@@ -32,7 +32,7 @@ public class Interface extends JFrame implements ActionListener{
 
         dice = new JButton("Dice");
         dice.setSize(80,50);
-        dice.setLocation(700,30);
+        dice.setLocation(700,25);
         dice.addActionListener( this::actionPerformed);
         pane.add(dice);
 
@@ -44,7 +44,7 @@ public class Interface extends JFrame implements ActionListener{
 
         labelDice = new JLabel("");
         labelDice.setSize(60,40);
-        labelDice.setLocation(700, 60);
+        labelDice.setLocation(700, 65);
         labelDice.setFont(new Font("Girassol",Font.PLAIN,18));
         pane.add(labelDice);
 
@@ -178,29 +178,36 @@ class Home extends JFrame implements ActionListener{
             this.s_player1 = e_player1.getText();
             this.s_player2 = e_player2.getText();
 
+            if (s_player2 == "" || s_player2  == ""){
+                JOptionPane.showMessageDialog(null, "Debe ingresar un nombre en jugador");
 
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException ex) {
-                ex.printStackTrace();
-            }
-            e_player1.setText(null);
-            e_player2.setText(null);
+            }else {
+//                this.s_player1 = e_player1.getText();
+//                this.s_player2 = e_player2.getText();
+
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException ex) {
+                    ex.printStackTrace();
+                }
+                e_player1.setText(null);
+                e_player2.setText(null);
 
 
-            System.out.println("Jugador 1");
-            System.out.println(s_player1);
-            System.out.println("Jugador 2");
-            System.out.println(s_player2);
+                System.out.println("Jugador 1");
+                System.out.println(s_player1);
+                System.out.println("Jugador 2");
+                System.out.println(s_player2);
 //            if(this.other == null){
 //                this.other = new Home();
 //            }else{
 //                this.other.setVisible(true);
 //            }
 
-            Main.example.setVisible(true);
+                Main.example.setVisible(true);
 
-            Main.home.setVisible(false);
+                Main.home.setVisible(false);
+            }
 
         }
     }
