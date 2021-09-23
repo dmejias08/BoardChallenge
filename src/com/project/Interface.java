@@ -8,7 +8,7 @@ import java.util.Random;
 
 public class Interface extends JFrame implements ActionListener{
 
-    ImageIcon imageClass;
+    ImageIcon imagJug1;
     public JPanel pane;
     public JButton dice;
     public JButton back;
@@ -49,9 +49,9 @@ public class Interface extends JFrame implements ActionListener{
         pane.add(labelDice);
 
 
-        imageClass = new ImageIcon("src"+Main.divider+"Images_Datos"+Main.divider+"icon_exit.png");
-        img = new JLabel(imageClass);
-        img.setSize(75,75);
+        imagJug1= new ImageIcon("src/Images_Datos/fichajugador.png");
+        img = new JLabel(imagJug1);
+        img.setSize(30,30);
         img.setLocation(10,10);
         pane.add(img);
 
@@ -68,6 +68,13 @@ public class Interface extends JFrame implements ActionListener{
             dice_result = 1 + diceR.nextInt(4);
             labelDice.setText(String.valueOf(dice_result));
             Main.lista.elements.moveForward(dice_result, 1);
+        }else if (e.getSource() == back){
+            Main.home.setVisible(true);
+            if (Main.example==null){
+                System.out.println("Soy other y estoy vacio ");;
+            }else {
+                Main.example.setVisible(false);
+            }
         }
 //        try {
 //            Thread.sleep(1000);
@@ -118,15 +125,15 @@ class Home extends JFrame implements ActionListener{
 
 
 
-        player1 = new JLabel("Jugador 1: ");
+        player1 = new JLabel("Jugador Negro: ");
         player1.setSize(150, 40);
-        player1.setLocation(250, 240);
+        player1.setLocation(220, 240);
         player1.setFont(new Font("Girassol", Font.PLAIN, 18));
         pane.add(player1);
 
-        player2 = new JLabel("Jugador 2: ");
+        player2 = new JLabel("Jugador Rojo: ");
         player2.setSize(150, 40);
-        player2.setLocation(250, 300);
+        player2.setLocation(220, 300);
         player2.setFont(new Font("Girassol", Font.PLAIN, 18));
         pane.add(player2);
 
@@ -195,13 +202,6 @@ class Home extends JFrame implements ActionListener{
 
             Main.home.setVisible(false);
 
-        }else if (e.getSource() == back){
-            Main.home.setVisible(true);
-            if (Main.example==null){
-                System.out.println("Soy other y estoy vacio ");;
-            }else {
-                Main.example.setVisible(false);
-            }
         }
     }
 }
