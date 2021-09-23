@@ -36,7 +36,7 @@ public class Interface extends JFrame implements ActionListener{
         dice.addActionListener( this::actionPerformed);
         pane.add(dice);
 
-        back = new JButton(imagBack);
+        back = new JButton("Back");
         back.setSize(60, 40);
         back.setLocation(600, 600);
         back.addActionListener(this);
