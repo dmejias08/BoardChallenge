@@ -34,32 +34,3 @@ public class servidor{
         }
     }
 }
-
-class infoPack implements Serializable {
-    private double correcto, respuesta;
-    private boolean acierto;
-
-    public boolean isAcierto() {
-        return acierto;
-    }
-
-    public void setAcierto(boolean acierto) {
-        this.acierto = acierto;
-    }
-
-    public double getCorrecto() {
-        return correcto;
-    }
-
-    public void setCorrecto(double correcto) {
-        this.correcto = correcto;
-    }
-
-    public double getRespuesta() {
-        return respuesta;
-    }
-
-    public void setRespuesta(double respuesta) {
-        this.respuesta = respuesta;
-    }
-}

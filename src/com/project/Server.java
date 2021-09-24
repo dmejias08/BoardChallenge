@@ -1,37 +1,34 @@
-//package com.project;
-//
-//import java.io.BufferedReader;
-//import java.io.IOException;
-//import java.io.InputStreamReader;
-//import java.io.PrintWriter;
-//import java.net.ServerSocket;
-//import java.net.Socket;
-//
-//public class Server {
-//    public static ServerSocket connector;
-//    public static ServerSocket connector2;
-//    private static int port = 9090;
-//    private static int port2 = 9999;
-//    public static Socket socket;
-//    public static Socket socket2;
-//
-//
-//    public static void main(String[] args) throws IOException {
-//        connector = new ServerSocket(port);
+package com.project;
+
+import java.io.*;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+public class Server {
+    public static ServerSocket connector;
+    public static ServerSocket connector2;
+    private static int port = 9090;
+    private static int port2 = 9999;
+    public static Socket socket;
+    public static Socket socket2;
+
+
+    public static void main(String[] args) throws IOException {
+        connector = new ServerSocket(port);
 //        connector2 = new ServerSocket(port2);
-//        System.out.println("Server is waiting for connection...");
-//        socket = connector.accept();
+        System.out.println("Server is waiting for connection...");
+        socket = connector.accept();
 //        socket2 = connector2.accept();
-//        System.out.println("Clientes conectado");
-//
-//        Thread server = new Thread(new Server1());
+        System.out.println("Clientes conectado");
+
+        Thread server = new Thread(new Server1());
 //        Thread client = new Thread(new Client());
-//
+
 //        client.start();
-//        server.start();
-//
-//
-//    }
+        server.start();
+
+
+    }
 //    private static class Client implements Runnable  {
 //
 //        private  static BufferedReader keyboard;
@@ -84,49 +81,68 @@
 //
 //        }
 //    }
-//
-//    private static class Server1 implements Runnable{
-//        private static BufferedReader in;
-//        private static PrintWriter out;
-//        private static String command_client;
-//
-//        @Override
-//        public void run() {
-//
-//            try {
-//                // Read from client
-//                in = new BufferedReader(new InputStreamReader(socket.getInputStream())); //  price from client
-//
-//                //Send response to  client
-//                out = new PrintWriter(socket.getOutputStream(), true); // sent the total to server
-//
-//                while (true) {
-//                    if (frame.sendRequest){//
-//                        command_client = in.readLine();
-////                        System.out.println("Pedido cliente 1: " + command_client);
-//                        if (command_client.equals(null) == false) {
-//                            out.println(getResponse());
-//                        }else {
-//                            continue;
-//                        }
-//                    }
-//                    else {
-//                        System.out.println("Disconnecting...");
-//                        in.close();
-//                        out.close();
-//                        connector.close();
-//                        socket.close();
-//                        break;
-//                    }
-//                }
-//            }
-//            catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//
-//
-//
-//
-//        }
-//    }
-//}
+
+    private static class Server1 implements Runnable{
+        private static ObjectInputStream in;
+        private static ObjectOutputStream out;
+        private static infoPack receivedPack;
+
+        @Override
+        public void run() {
+
+            try {
+                // Read from client
+                in = new ObjectInputStream(socket.getInputStream()); //  price from client
+
+                //Send response to  client
+                out = new ObjectOutputStream(socket.getOutputStream()); // sent the total to server
+
+                while (true) {
+                    receivedPack = (infoPack) in.readObject();
+                    System.out.println("Paquete recibido por servidor");
+
+                    if (receivedPack.getCorrecto()==receivedPack.getRespuesta()){
+                        receivedPack.setAcierto(true);
+                    }
+                    else{
+                        receivedPack.setAcierto(false);
+                    }
+                    out.writeObject(receivedPack);
+                }
+            }
+            catch (IOException | ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+
+class infoPack implements Serializable {
+    private double correcto, respuesta;
+    private boolean acierto;
+
+    public boolean isAcierto() {
+        return acierto;
+    }
+
+    public void setAcierto(boolean acierto) {
+        this.acierto = acierto;
+    }
+
+    public double getCorrecto() {
+        return correcto;
+    }
+
+    public void setCorrecto(double correcto) {
+        this.correcto = correcto;
+    }
+
+    public double getRespuesta() {
+        return respuesta;
+    }
+
+    public void setRespuesta(double respuesta) {
+        this.respuesta = respuesta;
+    }
+}
+

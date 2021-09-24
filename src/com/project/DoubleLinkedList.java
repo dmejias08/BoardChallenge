@@ -1,12 +1,16 @@
 package com.project;
 
 public class DoubleLinkedList {
+    public infoPack retoActual;
     public cliente client;
     private Node head;
     private Node tail;
     public Node jugador1;
     public Node jugador2;
     private int size;
+    public boolean retoActive = true;
+    public Reto dataRe;
+    public int jugadorActual;
 
     public void DoubleLinkedList(){
         this.jugador1 = null;
@@ -60,7 +64,7 @@ public class DoubleLinkedList {
     }
 
     public void moveForward(int numberDice, int jugador){
-        client = new cliente();
+        jugadorActual=jugador;
         if(this.jugador1 == null && this.jugador2 == null){
             this.jugador2 = this.head;
             this.jugador1= this.head;
@@ -93,20 +97,12 @@ public class DoubleLinkedList {
             moveTuTr(dataTu.start(),jugador,true);
 
         } else if (current.getData() instanceof Reto){
-            Reto dataRe = (Reto) current.getData();
+            dataRe = (Reto) current.getData();
             x = dataRe.x;
             y = dataRe.y;
             Interface.jug1.setLocation(x,y);
             dataRe.start();
-            client.send(dataRe.retoNum,dataRe.res);
-            if (client.isAcierto()==false) {
-                if (jugador == 1 && jugador1.next != null) {
-                    moveTuTr(1, 2, false);
-                } else if (jugador == 2 && jugador2.next != null) {
-                    moveTuTr(1, 1, false);
-                }
-                moveTuTr(1, jugador, true);
-            }
+            retoActual = new infoPack();
 
         } else if (current.getData() instanceof Trampa){
             Trampa dataTr = (Trampa) current.getData();
@@ -116,7 +112,6 @@ public class DoubleLinkedList {
             moveTuTr(dataTr.start(),jugador,false);
         }
     }
-    "hola"
 
     public void moveTuTr(int number, int jugador, boolean forward){
         Node current = null;
