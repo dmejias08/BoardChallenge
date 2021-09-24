@@ -10,7 +10,7 @@ public class Main {
     public static Interface example;
     public static Home home;
     public static Reto reto;
-    public static  Lista lista;
+    public static Lista lista;
     public static String divider = "/";
 
     public static void main(String[] args) {
@@ -22,6 +22,7 @@ public class Main {
         lista = new Lista();
         lista.create();
         home.repaint();
+
         //example.repaint();
 
     }

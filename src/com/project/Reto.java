@@ -88,7 +88,9 @@ public class Reto extends JFrame implements ActionListener {
             try {
                 System.out.println("Ok");
                 res = Double.parseDouble(answer.getText());
-                Main.lista.elements.client.send(retoNum, res);
+                Main.lista.elements.retoActual.setCorrecto(Main.lista.elements.dataRe.retoNum);
+                Main.lista.elements.retoActual.setRespuesta(Main.lista.elements.dataRe.res);
+                Main.lista.elements.retoActive = true;
             } catch (NumberFormatException n) {
                 JOptionPane.showMessageDialog(null, "Sólo se permite la entrada de enteros");
                 answer.setText(null);
