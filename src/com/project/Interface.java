@@ -135,13 +135,13 @@ class Home extends JFrame implements ActionListener{
 
         player1 = new JLabel("Jugador Negro: ");
         player1.setSize(150, 40);
-        player1.setLocation(220, 240);
+        player1.setLocation(200, 240);
         player1.setFont(new Font("Girassol", Font.PLAIN, 18));
         pane.add(player1);
 
-        player2 = new JLabel("Jugador Rojo: ");
-        player2.setSize(150, 40);
-        player2.setLocation(220, 300);
+        player2 = new JLabel("Jugador Naranja: ");
+        player2.setSize(200, 40);
+        player2.setLocation(200, 300);
         player2.setFont(new Font("Girassol", Font.PLAIN, 18));
         pane.add(player2);
 
