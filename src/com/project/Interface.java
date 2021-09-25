@@ -14,11 +14,14 @@ public class Interface extends JFrame implements ActionListener{
     public JButton dice;
     public JButton back;
     public JLabel labelDice;
-    public JLabel labelGame;
+    public JLabel labelGame1;
+    public JLabel labelGame2;
+    public JLabel labelGame3;
     public static JLabel jug2;
     public static JLabel jug1;
     public int dice_result;
     public ImageIcon imagBack;
+    private int jugador = 1;
 
     public Interface(){
 
@@ -51,15 +54,23 @@ public class Interface extends JFrame implements ActionListener{
         labelDice.setFont(new Font("Girassol",Font.PLAIN,18));
         pane.add(labelDice);
 
+        labelGame1 = new JLabel("Reto : Verde ");
+        labelGame1.setSize(300,300);
+        labelGame1.setLocation(650, 100);
+        labelGame1.setFont(new Font("Girassol",Font.PLAIN,18));
+        pane.add(labelGame1);
 
-        labelGame = new JLabel("Reto : Verde " +
-                "\n Tunel : Celeste " +
-                "\n Trampa : Rojo");
-        labelGame.setSize(300,400);
-        labelGame.setLocation(600, 100);
-        labelGame.setFont(new Font("Girassol",Font.PLAIN,18));
-        pane.add(labelGame);
+        labelGame2 = new JLabel("Tunel : Menta ");
+        labelGame2.setSize(300,300);
+        labelGame2.setLocation(650, 150);
+        labelGame2.setFont(new Font("Girassol",Font.PLAIN,18));
+        pane.add(labelGame2);
 
+        labelGame3 = new JLabel("Trampa : Rojo");
+        labelGame3.setSize(300,300);
+        labelGame3.setLocation(650, 200);
+        labelGame3.setFont(new Font("Girassol",Font.PLAIN,18));
+        pane.add(labelGame3);
 
         imagJug1= new ImageIcon("src/Images_Datos/fichajugador.png");
         jug1 = new JLabel(imagJug1);
@@ -85,7 +96,12 @@ public class Interface extends JFrame implements ActionListener{
             Random diceR = new Random();
             dice_result = 1 + diceR.nextInt(4);
             labelDice.setText(String.valueOf(dice_result));
-            Main.lista.elements.moveForward(dice_result, 1);
+            Main.lista.elements.moveForward(dice_result, jugador);
+            if (jugador==1){
+                jugador++;
+            } else {
+                jugador--;
+            }
         }else if (e.getSource() == back){
             Main.home.setVisible(true);
             if (Main.example==null){
@@ -94,12 +110,6 @@ public class Interface extends JFrame implements ActionListener{
                 Main.example.setVisible(false);
             }
         }
-//        try {
-//            Thread.sleep(1000);
-//            labelDice.setText("");
-//    } catch (InterruptedException ex) {
-//        ex.printStackTrace();
-//        }
     }
 }
 
@@ -136,8 +146,8 @@ class Home extends JFrame implements ActionListener{
         imagTitle = new ImageIcon("src/Images_Datos/MathTitle.png");
 
         play = new JButton("Jugar");
-        play.setSize(400, 100);
-        play.setLocation(200, 500);
+        play.setSize(200, 50);
+        play.setLocation(300, 500);
         play.addActionListener(this);
         pane.add(play);
 
@@ -145,13 +155,13 @@ class Home extends JFrame implements ActionListener{
 
         player1 = new JLabel("Jugador Negro: ");
         player1.setSize(150, 40);
-        player1.setLocation(200, 240);
+        player1.setLocation(250, 280);
         player1.setFont(new Font("Girassol", Font.PLAIN, 18));
         pane.add(player1);
 
         player2 = new JLabel("Jugador Naranja: ");
         player2.setSize(200, 40);
-        player2.setLocation(200, 300);
+        player2.setLocation(250, 360);
         player2.setFont(new Font("Girassol", Font.PLAIN, 18));
         pane.add(player2);
 
@@ -163,12 +173,12 @@ class Home extends JFrame implements ActionListener{
 
         e_player1 = new JTextField(20);
         e_player1.setSize(150, 40);
-        e_player1.setLocation(350, 240);
+        e_player1.setLocation(400, 280);
         pane.add(e_player1);
 
         e_player2 = new JTextField(20);
         e_player2.setSize(150, 40);
-        e_player2.setLocation(350, 300);
+        e_player2.setLocation(400, 360);
         pane.add(e_player2);
 
 //        labelImg = new JLabel(imagen);
@@ -196,18 +206,18 @@ class Home extends JFrame implements ActionListener{
             this.s_player1 = e_player1.getText();
             this.s_player2 = e_player2.getText();
 
-            if (s_player2 == "" || s_player2  == ""){
+            if (e_player1.getText().equals("") || e_player2.getText().equals("")){
                 JOptionPane.showMessageDialog(null, "Debe ingresar un nombre en jugador");
 
-            }else {
+            } else {
 //                this.s_player1 = e_player1.getText();
 //                this.s_player2 = e_player2.getText();
 
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException ex) {
-                    ex.printStackTrace();
-                }
+//                try {
+//                    Thread.sleep(1000);
+//                } catch (InterruptedException ex) {
+//                    ex.printStackTrace();
+//                }
                 e_player1.setText(null);
                 e_player2.setText(null);
 
@@ -226,7 +236,7 @@ class Home extends JFrame implements ActionListener{
 
                 Main.home.setVisible(false);
             }
-
+        } else {
         }
     }
 }

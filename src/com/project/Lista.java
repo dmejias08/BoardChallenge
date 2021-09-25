@@ -11,12 +11,12 @@ public class Lista {
 
     public void create() {
         elements = new DoubleLinkedList();
-        x=50 ;
+        x=100 ;
         y=50;
         tu=0;
         tr=0;
         re=0;
-        while (y<=500 + 20){
+        while (y<=500){
             casilla = rand.nextInt(4-1) + 1;
             if (casilla==1 & tu<4){
                 tunel = new Tunel();
@@ -49,8 +49,8 @@ public class Lista {
                 x=x+150 ;
             }
 
-            if (x>500+20){
-                x=50;
+            if (x>600){
+                x=100;
                 y=y+150;
             }
         }

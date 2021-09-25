@@ -65,11 +65,15 @@ public class DoubleLinkedList {
 
     public void moveForward(int numberDice, int jugador){
         jugadorActual=jugador;
-        if(this.jugador1 == null && this.jugador2 == null){
-            this.jugador2 = this.head;
+        if(this.jugador1 == null && jugador == 1){
             this.jugador1= this.head;
             numberDice --;
         }
+        if (this.jugador2 == null && jugador == 2){
+            this.jugador2= this.head;
+            numberDice --;
+        }
+
         Node current = null;
         if (jugador == 1) {
             current = this.jugador1;
@@ -93,14 +97,22 @@ public class DoubleLinkedList {
             Tunel dataTu = (Tunel) current.getData();
             x = dataTu.x;
             y = dataTu.y;
-            Interface.jug1.setLocation(x,y);
+            if (jugador==1) {
+                Interface.jug1.setLocation(x, y);
+            } else {
+                Interface.jug2.setLocation(x, y+30);
+            }
             moveTuTr(dataTu.start(),jugador,true);
 
         } else if (current.getData() instanceof Reto){
             dataRe = (Reto) current.getData();
             x = dataRe.x;
             y = dataRe.y;
-            Interface.jug1.setLocation(x,y);
+            if (jugador==1) {
+                Interface.jug1.setLocation(x, y);
+            } else {
+                Interface.jug2.setLocation(x, y+30);
+            }
             dataRe.start();
             retoActual = new infoPack();
 
@@ -108,7 +120,11 @@ public class DoubleLinkedList {
             Trampa dataTr = (Trampa) current.getData();
             x = dataTr.x;
             y = dataTr.y;
-            Interface.jug1.setLocation(x,y);
+            if (jugador==1) {
+                Interface.jug1.setLocation(x, y);
+            } else {
+                Interface.jug2.setLocation(x, y+30);
+            }
             moveTuTr(dataTr.start(),jugador,false);
         }
     }
@@ -127,7 +143,7 @@ public class DoubleLinkedList {
                 }
                 current = current.next;
             } else if (forward==false) {
-                if (current.previous==null){
+                if (current==null || current.previous==null){
                     break;
                 }
                 current = current.previous;
@@ -144,17 +160,29 @@ public class DoubleLinkedList {
             Tunel dataTu = (Tunel) current.getData();
             x = dataTu.x;
             y = dataTu.y;
-            Interface.jug1.setLocation(x,y);
+            if (jugador==1) {
+                Interface.jug1.setLocation(x, y);
+            } else {
+                Interface.jug2.setLocation(x, y+30);
+            }
         } else if (current.getData() instanceof Reto){
             Reto dataRe = (Reto) current.getData();
             x = dataRe.x;
             y = dataRe.y;
-            Interface.jug1.setLocation(x,y);
+            if (jugador==1) {
+                Interface.jug1.setLocation(x, y);
+            } else {
+                Interface.jug2.setLocation(x, y+30);
+            }
         } else if (current.getData() instanceof Trampa){
             Trampa dataTr = (Trampa) current.getData();
             x = dataTr.x;
             y = dataTr.y;
-            Interface.jug1.setLocation(x,y);
+            if (jugador==1) {
+                Interface.jug1.setLocation(x, y);
+            } else {
+                Interface.jug2.setLocation(x, y+30);
+            }
         }
     }
 
