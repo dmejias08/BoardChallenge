@@ -11,7 +11,7 @@ public class Lista {
 
     public void create() {
         elements = new DoubleLinkedList();
-        x=50 + 20;
+        x=50 ;
         y=50;
         tu=0;
         tr=0;
@@ -26,7 +26,7 @@ public class Lista {
                 tunel.set();
                 elements.insertLast(tunel);
                 tu++;
-                x=x+150 +20;
+                x=x+150;
             }
             else if (casilla==2 & tr<4){
                 trampa = new Trampa();
@@ -36,7 +36,7 @@ public class Lista {
                 trampa.set();
                 elements.insertLast(trampa);
                 tr++;
-                x=x+150 + 20;
+                x=x+150 ;
             }
             else if (casilla==3 & re<8){
                 reto = new Reto();
@@ -46,7 +46,7 @@ public class Lista {
                 reto.set();
                 elements.insertLast(reto);
                 re++;
-                x=x+150 + 20;
+                x=x+150 ;
             }
 
             if (x>500+20){

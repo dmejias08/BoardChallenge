@@ -14,6 +14,7 @@ public class Interface extends JFrame implements ActionListener{
     public JButton dice;
     public JButton back;
     public JLabel labelDice;
+    public JLabel labelGame;
     public static JLabel jug2;
     public static JLabel jug1;
     public int dice_result;
@@ -49,6 +50,15 @@ public class Interface extends JFrame implements ActionListener{
         labelDice.setLocation(700, 65);
         labelDice.setFont(new Font("Girassol",Font.PLAIN,18));
         pane.add(labelDice);
+
+
+        labelGame = new JLabel("Reto : Verde " +
+                "\n Tunel : Celeste " +
+                "\n Trampa : Rojo");
+        labelGame.setSize(300,400);
+        labelGame.setLocation(600, 100);
+        labelGame.setFont(new Font("Girassol",Font.PLAIN,18));
+        pane.add(labelGame);
 
 
         imagJug1= new ImageIcon("src/Images_Datos/fichajugador.png");
