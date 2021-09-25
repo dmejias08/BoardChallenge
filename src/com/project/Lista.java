@@ -11,12 +11,12 @@ public class Lista {
 
     public void create() {
         elements = new DoubleLinkedList();
-        x=50;
+        x=50 + 20;
         y=50;
         tu=0;
         tr=0;
         re=0;
-        while (y<=500){
+        while (y<=500 + 20){
             casilla = rand.nextInt(4-1) + 1;
             if (casilla==1 & tu<4){
                 tunel = new Tunel();
@@ -26,7 +26,7 @@ public class Lista {
                 tunel.set();
                 elements.insertLast(tunel);
                 tu++;
-                x=x+150;
+                x=x+150 +20;
             }
             else if (casilla==2 & tr<4){
                 trampa = new Trampa();
@@ -36,7 +36,7 @@ public class Lista {
                 trampa.set();
                 elements.insertLast(trampa);
                 tr++;
-                x=x+150;
+                x=x+150 + 20;
             }
             else if (casilla==3 & re<8){
                 reto = new Reto();
@@ -46,10 +46,10 @@ public class Lista {
                 reto.set();
                 elements.insertLast(reto);
                 re++;
-                x=x+150;
+                x=x+150 + 20;
             }
 
-            if (x>500){
+            if (x>500+20){
                 x=50;
                 y=y+150;
             }
