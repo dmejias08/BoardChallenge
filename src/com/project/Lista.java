@@ -55,8 +55,4 @@ public class Lista {
             }
         }
     }
-    public void moveForward(int spaces,int x, int y, Node node){
-
-
-    }
 }
