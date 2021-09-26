@@ -2,13 +2,11 @@ package com.project;
 
 public class DoubleLinkedList {
     public infoPack retoActual;
-    public cliente client;
     private Node head;
     private Node tail;
     public Node jugador1;
     public Node jugador2;
     private int size;
-    public boolean retoActive = true;
     public Reto dataRe;
     public int jugadorActual;
 
@@ -41,26 +39,6 @@ public class DoubleLinkedList {
         }
         this.tail = newNode;
         this.size++;
-    }
-
-    public Node deleteFirst(){
-        if (this.tail != null) {
-            Node temp = this.head;
-            this.head = this.head.next;
-            this.head.previous = null;
-            this.size--;
-            return temp;
-        } else {
-            return null;
-        }
-    }
-
-    public void displayList(){
-        Node current = this.head;
-        while (current != null){
-            System.out.println(current.getData());
-            current = current.next;
-        }
     }
 
     public void moveForward(int numberDice, int jugador){

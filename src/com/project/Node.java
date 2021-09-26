@@ -1,8 +1,6 @@
 package com.project;
 
 public class Node {
-
-
     private Object data;
     public Node next;
     public Node previous;

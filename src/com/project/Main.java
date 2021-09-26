@@ -18,13 +18,9 @@ public class Main {
         home = new Home();
         example = new Interface();
         example.setVisible(false);
-        //example = new Interface();
         lista = new Lista();
         lista.create();
         home.repaint();
-
-        //example.repaint();
-
     }
 }
 

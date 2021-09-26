@@ -1,7 +1,6 @@
 package com.project;
 
 import javax.swing.*;
-import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
@@ -19,11 +18,8 @@ public class client2 {
 
     public static Socket socketClientReceiver;
 
-    ;
-
     public static void start() {
         try {
-//            socketClientReceiver = new Socket("localhost", 9999);
             infoPack receivedPack;
             while (true) {
                 ObjectInputStream inPack = new ObjectInputStream(socketClientReceiver.getInputStream());
@@ -41,7 +37,6 @@ public class client2 {
 
     public static void send(double correcto, double respuesta){
         try{
-//            Socket socketClientSend = new Socket("localhost", 9090);
             socketClientReceiver = new Socket("localhost",9090);
             infoPack data = new infoPack();
             data.setAcierto(false);
@@ -50,7 +45,6 @@ public class client2 {
             ObjectOutputStream outPack = new ObjectOutputStream(socketClientReceiver.getOutputStream());
             outPack.writeObject(data);
             System.out.println("Enviado");
-//            socketClientSend.close();
         } catch (Exception n) {
             n.getMessage();
         }

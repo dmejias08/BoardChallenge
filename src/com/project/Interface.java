@@ -24,8 +24,6 @@ public class Interface extends JFrame implements ActionListener{
     private int jugador = 1;
 
     public Interface(){
-
-
         imagBack = new ImageIcon("src/Images_Datos/exit_icon.png");
 
         setTitle("Math Socket");
@@ -114,26 +112,19 @@ public class Interface extends JFrame implements ActionListener{
 }
 
 class Home extends JFrame implements ActionListener{
-
     public JPanel pane;
     public JButton play;
-    public JButton back;
     public JLabel player1;
     public JLabel player2;
     public JLabel title;
     public JTextField e_player1;
     public JTextField e_player2;
-    public JLabel labelImg;
     public ImageIcon img;
-    public ImageIcon imagBack;
     public ImageIcon imagTitle;
-    public int play_result;
-    public String divider = "/";
     public String s_player1;
     public String s_player2;
 
     public Home() {
-
         setTitle("Math Challenge");
         setVisible(true);
         setSize(800, 700);
@@ -151,8 +142,6 @@ class Home extends JFrame implements ActionListener{
         play.addActionListener(this);
         pane.add(play);
 
-
-
         player1 = new JLabel("Jugador Negro: ");
         player1.setSize(150, 40);
         player1.setLocation(250, 280);
@@ -164,7 +153,6 @@ class Home extends JFrame implements ActionListener{
         player2.setLocation(250, 360);
         player2.setFont(new Font("Girassol", Font.PLAIN, 18));
         pane.add(player2);
-
 
         title = new JLabel( imagTitle);
         title.setSize(650, 210);
@@ -181,23 +169,9 @@ class Home extends JFrame implements ActionListener{
         e_player2.setLocation(400, 360);
         pane.add(e_player2);
 
-//        labelImg = new JLabel(imagen);
-//        labelImg.setSize(75, 75);
-//        labelImg.setLocation(300, 100);
-//        pane.add(labelImg);
-
-
-//        public static JLabel setImage(ImageIcon image, int coord_x, int coord_y){
-//            JLabel place = new JLabel(image);
-//            place.setSize(75,75);
-//            place.setLocation(coord_x,coord_y);
-//            return place;
-
         setResizable(false);
         pane.repaint();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-
     }
 
     @Override
@@ -210,27 +184,13 @@ class Home extends JFrame implements ActionListener{
                 JOptionPane.showMessageDialog(null, "Debe ingresar un nombre en jugador");
 
             } else {
-//                this.s_player1 = e_player1.getText();
-//                this.s_player2 = e_player2.getText();
-
-//                try {
-//                    Thread.sleep(1000);
-//                } catch (InterruptedException ex) {
-//                    ex.printStackTrace();
-//                }
                 e_player1.setText(null);
                 e_player2.setText(null);
-
 
                 System.out.println("Jugador 1");
                 System.out.println(s_player1);
                 System.out.println("Jugador 2");
                 System.out.println(s_player2);
-//            if(this.other == null){
-//                this.other = new Home();
-//            }else{
-//                this.other.setVisible(true);
-//            }
 
                 Main.example.setVisible(true);
 

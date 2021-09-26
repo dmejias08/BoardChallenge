@@ -19,12 +19,9 @@ public class Reto extends JFrame implements ActionListener {
     public double retoNum, res;
     String reto="";
 
-
-
     public void set() {
 
         imageClass = new ImageIcon("src"+Main.divider+"Images_Datos"+Main.divider+"reton.png");
-//        ImageIcon img2 = new ImageIcon(imageClass.getScaledInstance(80, 80, Image.SCALE_SMOOTH));
         place = new JLabel(imageClass);
         place.setText("Reto");
         place.setSize(75,75);
@@ -88,10 +85,6 @@ public class Reto extends JFrame implements ActionListener {
             try {
                 System.out.println("Ok");
                 res = Double.parseDouble(answer.getText());
-//                Main.lista.elements.retoActual.setCorrecto(Main.lista.elements.dataRe.retoNum);
-//                Main.lista.elements.retoActual.setRespuesta(Main.lista.elements.dataRe.res);
-//                Main.lista.elements.retoActive = true;
-
                 Thread server = new Thread(new servidor2());
                 server.start();
                 client2.send(retoNum,res);
