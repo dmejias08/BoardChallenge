@@ -6,7 +6,7 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 
 public class client2 {
-    private static boolean acierto;
+    public boolean acierto;
 
     public boolean isAcierto() {
         return acierto;
@@ -18,7 +18,7 @@ public class client2 {
 
     public static Socket socketClientReceiver;
 
-    public static void start() {
+    public void start() {
         try {
             infoPack receivedPack;
             while (true) {
@@ -35,11 +35,10 @@ public class client2 {
         }
     }
 
-    public static void send(double correcto, double respuesta){
+    public void send(double correcto, double respuesta){
         try{
             socketClientReceiver = new Socket("localhost",9090);
             infoPack data = new infoPack();
-            data.setAcierto(false);
             data.setCorrecto(correcto);
             data.setRespuesta(respuesta);
             ObjectOutputStream outPack = new ObjectOutputStream(socketClientReceiver.getOutputStream());

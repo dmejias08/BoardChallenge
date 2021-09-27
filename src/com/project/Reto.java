@@ -17,6 +17,7 @@ public class Reto extends JFrame implements ActionListener {
     Random rand = new Random();
     public  int x,y,a,b,op;
     public double retoNum, res;
+    public boolean aciertoReto;
     String reto="";
 
     public void set() {
@@ -85,10 +86,20 @@ public class Reto extends JFrame implements ActionListener {
             try {
                 System.out.println("Ok");
                 res = Double.parseDouble(answer.getText());
-                Thread server = new Thread(new servidor2());
+                servidor2 server1 = new servidor2();
+                client2 client2 = new client2();
+                Thread server = new Thread(server1);
                 server.start();
                 client2.send(retoNum,res);
                 client2.start();
+                if (client2.acierto==false) {
+                    if (Main.lista.elements.jugadorActual == 1 && Main.lista.elements.jugador1.next != null) {
+                        Main.lista.elements.moveTuTr(1, 2, false);
+                    } else if (Main.lista.elements.jugadorActual == 2 && Main.lista.elements.jugador2.next != null) {
+                        Main.lista.elements.moveTuTr(1, 1, false);
+                    }
+                }
+                Main.lista.elements.moveTuTr(1, Main.lista.elements.jugadorActual, true);
             } catch (NumberFormatException n) {
                 JOptionPane.showMessageDialog(null, "Sólo se permite la entrada de enteros");
                 answer.setText(null);

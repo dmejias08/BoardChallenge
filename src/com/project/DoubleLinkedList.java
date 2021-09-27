@@ -1,7 +1,6 @@
 package com.project;
 
 public class DoubleLinkedList {
-    public infoPack retoActual;
     private Node head;
     private Node tail;
     public Node jugador1;
@@ -92,7 +91,6 @@ public class DoubleLinkedList {
                 Interface.jug2.setLocation(x, y+30);
             }
             dataRe.start();
-            retoActual = new infoPack();
 
         } else if (current.getData() instanceof Trampa){
             Trampa dataTr = (Trampa) current.getData();
