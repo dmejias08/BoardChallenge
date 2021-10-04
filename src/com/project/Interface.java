@@ -94,19 +94,16 @@ public class Interface extends JFrame implements ActionListener{
             Random diceR = new Random();
             dice_result = 1 + diceR.nextInt(4);
             labelDice.setText(String.valueOf(dice_result));
-            Main.lista.elements.moveForward(dice_result, jugador);
+            Main.home.lista.elements.moveForward(dice_result, jugador);
             if (jugador==1){
                 jugador++;
             } else {
                 jugador--;
             }
         }else if (e.getSource() == back){
+            Main.home.example.dispose();
             Main.home.setVisible(true);
-            if (Main.example==null){
-                System.out.println("Soy other y estoy vacio ");;
-            }else {
-                Main.example.setVisible(false);
-            }
+
         }
     }
 }
@@ -123,6 +120,8 @@ class Home extends JFrame implements ActionListener{
     public ImageIcon imagTitle;
     public String s_player1;
     public String s_player2;
+    public static Interface example;
+    public static Lista lista;
 
     public Home() {
         setTitle("Math Challenge");
@@ -191,8 +190,10 @@ class Home extends JFrame implements ActionListener{
                 System.out.println(s_player1);
                 System.out.println("Jugador 2");
                 System.out.println(s_player2);
-
-                Main.example.setVisible(true);
+                example = new Interface();
+                example.setVisible(true);
+                lista = new Lista();
+                lista.create();
 
                 Main.home.setVisible(false);
             }

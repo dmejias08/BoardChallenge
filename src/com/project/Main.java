@@ -7,19 +7,19 @@ import java.awt.event.ActionListener;
 import java.util.Random;
 
 public class Main {
-    public static Interface example;
+//    public static Interface example;
     public static Home home;
     public static Reto reto;
-    public static Lista lista;
+//    public static Lista lista;
     public static String divider = "/";
 
     public static void main(String[] args) {
 
         home = new Home();
-        example = new Interface();
-        example.setVisible(false);
-        lista = new Lista();
-        lista.create();
+//        example = new Interface();
+//        example.setVisible(false);
+//        lista = new Lista();
+//        lista.create();
         home.repaint();
     }
 }

@@ -22,7 +22,7 @@ public class Lista {
                 tunel = new Tunel();
                 tunel.x=x;
                 tunel.y=y;
-                tunel.juego=Main.example.pane;
+                tunel.juego=Main.home.example.pane;
                 tunel.set();
                 elements.insertLast(tunel);
                 tu++;
@@ -32,7 +32,7 @@ public class Lista {
                 trampa = new Trampa();
                 trampa.x=x;
                 trampa.y=y;
-                trampa.juego=Main.example.pane;
+                trampa.juego=Main.home.example.pane;
                 trampa.set();
                 elements.insertLast(trampa);
                 tr++;
@@ -42,7 +42,7 @@ public class Lista {
                 reto = new Reto();
                 reto.x=x;
                 reto.y=y;
-                reto.juego=Main.example.pane;
+                reto.juego=Main.home.example.pane;
                 reto.set();
                 elements.insertLast(reto);
                 re++;

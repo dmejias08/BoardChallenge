@@ -93,17 +93,18 @@ public class Reto extends JFrame implements ActionListener {
                 client2.send(retoNum,res);
                 client2.start();
                 if (client2.acierto==false) {
-                    if (Main.lista.elements.jugadorActual == 1 && Main.lista.elements.jugador1.next != null) {
-                        Main.lista.elements.moveTuTr(1, 2, false);
-                    } else if (Main.lista.elements.jugadorActual == 2 && Main.lista.elements.jugador2.next != null) {
-                        Main.lista.elements.moveTuTr(1, 1, false);
+                    if (Main.home.lista.elements.jugadorActual == 1 && Main.home.lista.elements.jugador1.next != null) {
+                        Main.home.lista.elements.moveTuTr(1, 2, false);
+                    } else if (Main.home.lista.elements.jugadorActual == 2 && Main.home.lista.elements.jugador2.next != null) {
+                        Main.home.lista.elements.moveTuTr(1, 1, false);
                     }
                 }
-                Main.lista.elements.moveTuTr(1, Main.lista.elements.jugadorActual, true);
+                Main.home.lista.elements.moveTuTr(1, Main.home.lista.elements.jugadorActual, true);
             } catch (NumberFormatException n) {
                 JOptionPane.showMessageDialog(null, "Sólo se permite la entrada de enteros");
                 answer.setText(null);
             }
+            msgBox.setVisible(false);
         }
     }
 }

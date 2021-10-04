@@ -12,13 +12,13 @@ public class Player {
     public void Player(){
         this.x = 0;
         this.y = 0;
-        this.current =  Main.lista.elements.getHead();
+        this.current =  Main.home.lista.elements.getHead();
     }
     public void set(){
         imageClass = new ImageIcon("src"+Main.divider+"Images_Datos"+Main.divider+"icon_exit.png");
         img = new JLabel(imageClass);
         img.setSize(this.x,this.y);
         img.setLocation(x,y);
-        Main.example.pane.add(img);
+        Main.home.example.pane.add(img);
     }
 }
