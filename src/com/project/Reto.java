@@ -12,13 +12,15 @@ public class Reto extends JFrame implements ActionListener {
     ImageIcon imageClass;
     JLabel place;
     JPanel juego;
-//    JLabel challenge;
+    JPanel msgBox;
+    JLabel challenge;
     JTextField answer;
     JButton ask;
     public int x, y;
     public double retoNum, res;
     public boolean aciertoReto;
     String reto = "";
+    public boolean notUsed = true;
 
     public void set() {
 
@@ -41,7 +43,7 @@ public class Reto extends JFrame implements ActionListener {
         setTitle("Reto");
         setVisible(true);
         setSize(300, 200);
-        JPanel msgBox = new JPanel();
+        msgBox = new JPanel();
         this.getContentPane().add(msgBox);
         msgBox.setLayout(null);
         msgBox.setBackground(Color.decode("#bad5ff"));
@@ -57,36 +59,41 @@ public class Reto extends JFrame implements ActionListener {
             this.retoNum = a - b;
         }
         if (op == 3) {
-            if ((a*b)>50){
-                this.reto = a + "+" + b;
-                this.retoNum = a + b;
-            } else {
-                this.reto = a*b + "/" + b;
-                this.retoNum = a;
-            }
+            double an, bn;
+            an = (a*100.0)/100.0;
+            bn = (b*100.0)/100.0;
+            this.reto = a + "/" + b;
+            this.retoNum = an/bn;
         }
         if (op == 4) {
             this.reto = a + "*" + b;
             this.retoNum = a * b;
         }
-        System.out.println(retoNum);
 
-        JLabel challenge = new JLabel("¿Cuál es el valor de " + this.reto + "?");
-        challenge.setSize(200, 20);
-        challenge.setLocation(60, 30);
-        msgBox.add(challenge);
+        if (notUsed) {
+            challenge = new JLabel("¿Cuál es el valor de " + this.reto + "?");
+            challenge.setSize(200, 20);
+            challenge.setLocation(60, 30);
+            msgBox.add(challenge);
 
-        answer = new JTextField();
-        answer.setSize(50, 20);
-        answer.setLocation(115, 70);
-        msgBox.add(answer);
+            answer = new JTextField();
+            answer.setSize(50, 20);
+            answer.setLocation(115, 70);
+            msgBox.add(answer);
 
-        ask = new JButton("Ok");
-        ask.setSize(50, 20);
-        ask.setLocation(115, 110);
-        msgBox.add(ask);
-        ask.addActionListener(this::actionPerformed);
-        msgBox.repaint();
+            ask = new JButton("Ok");
+            ask.setSize(50, 20);
+            ask.setLocation(115, 110);
+            msgBox.add(ask);
+            ask.addActionListener(this::actionPerformed);
+            this.notUsed = false;
+            msgBox.repaint();
+
+        } else {
+            answer.setText(null);
+            challenge.setText("¿Cuál es el valor de " + this.reto + "?");
+            msgBox.repaint();
+        }
     }
 
     @Override
@@ -112,21 +119,7 @@ public class Reto extends JFrame implements ActionListener {
                 JOptionPane.showMessageDialog(null, "Sólo se permite la entrada de enteros");
                 answer.setText(null);
             }
-//            if (Main.home.lista.elements.jugadorActual == 1) {
-//                Reto newReto = new Reto();
-//                newReto.x = this.x;
-//                newReto.y = this.y;
-//                newReto.juego = this.juego;
-//                Main.home.lista.elements.jugador1.setData(newReto);
-//            } else if (Main.home.lista.elements.jugadorActual == 2) {
-//                Reto newReto = new Reto();
-//                newReto.x = this.x;
-//                newReto.y = this.y;
-//                newReto.juego = this.juego;
-//                Main.home.lista.elements.jugador2.setData(newReto);
-//            }
             Main.home.example.dice.setEnabled(true);
-            answer.setText(null);
             this.dispose();
         }
     }
