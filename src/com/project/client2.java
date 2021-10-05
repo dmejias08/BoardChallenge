@@ -25,13 +25,17 @@ public class client2 {
                 ObjectInputStream inPack = new ObjectInputStream(socketClientReceiver.getInputStream());
                 receivedPack = (infoPack) inPack.readObject();
                 acierto = receivedPack.isAcierto();
-                System.out.println("Mi respuesta fue "+acierto);
-                JOptionPane.showMessageDialog(null,"Su respuesta fue: "+acierto);
-                System.out.println("Cerrando cliente");
+                String respuesta;
+                if (acierto){
+                    respuesta="correcta";
+                } else {
+                    respuesta="incorrecta";
+                }
+                JOptionPane.showMessageDialog(null,"Su respuesta fue: "+respuesta);
                 socketClientReceiver.close();
             }
         } catch (Exception n) {
-            System.out.println(n.getMessage());
+            n.getMessage();
         }
     }
 

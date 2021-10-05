@@ -186,10 +186,6 @@ class Home extends JFrame implements ActionListener{
                 e_player1.setText(null);
                 e_player2.setText(null);
 
-                System.out.println("Jugador 1");
-                System.out.println(s_player1);
-                System.out.println("Jugador 2");
-                System.out.println(s_player2);
                 example = new Interface();
                 example.setVisible(true);
                 lista = new Lista();
