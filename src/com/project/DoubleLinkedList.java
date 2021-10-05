@@ -64,10 +64,10 @@ public class DoubleLinkedList {
             if (current==null || current.next==null){
                 if (numberDice>=1) {
                     if (jugador == 1) {
-                        Interface.jug1.setLocation(625, 500);
+                        Interface.jug1.setLocation(640, 500);
                         JOptionPane.showMessageDialog(null, "Felicidades el ganador es "+Main.home.s_player1);
                     } else {
-                        Interface.jug2.setLocation(625, 500 + 30);
+                        Interface.jug2.setLocation(640, 500 + 30);
                         JOptionPane.showMessageDialog(null, "Felicidades el ganador es "+Main.home.s_player2);
                     }
                     Main.home.example.dispose();
@@ -140,10 +140,10 @@ public class DoubleLinkedList {
                 if (current==null || current.next == null) {
                     if (number>=1) {
                         if (jugador == 1) {
-                            Interface.jug1.setLocation(625, 500);
+                            Interface.jug1.setLocation(640, 500);
                             JOptionPane.showMessageDialog(null, "Felicidades el ganador es "+Main.home.s_player1);
                         } else {
-                            Interface.jug2.setLocation(625, 500 + 30);
+                            Interface.jug2.setLocation(640, 500 + 30);
                             JOptionPane.showMessageDialog(null, "Felicidades el ganador es "+Main.home.s_player2);
                         }
                         Main.home.example.dispose();

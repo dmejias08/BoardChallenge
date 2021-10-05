@@ -39,18 +39,30 @@ public class Interface extends JFrame implements ActionListener{
         pane.setLayout(null);
         pane.setBackground(Color.decode("#bad5ff"));
 
-        start = new ImageIcon("src" + Main.divider + "Images_Datos" + Main.divider + "start.png");
+        imagJug1= new ImageIcon("src/Images_Datos/fichajugador.png");
+        jug1 = new JLabel(imagJug1);
+        jug1.setSize(30,30);
+        jug1.setLocation(10,50);
+        pane.add(jug1);
+
+        imagJug2= new ImageIcon("src/Images_Datos/fichajugador1.png");
+        jug2 = new JLabel(imagJug2);
+        jug2.setSize(30,30);
+        jug2.setLocation(10,50+30);
+        pane.add(jug2);
+
+        start = new ImageIcon("src" + Main.divider + "Images_Datos" + Main.divider + "startend.png");
         lstart = new JLabel(start);
         lstart.setText("Reto");
         lstart.setSize(75, 75);
-        lstart.setLocation(10, 10);
+        lstart.setLocation(10, 50);
         pane.add(lstart);
 
-        end = new ImageIcon("src" + Main.divider + "Images_Datos" + Main.divider + "end.png");
+        end = new ImageIcon("src" + Main.divider + "Images_Datos" + Main.divider + "startend.png");
         lend = new JLabel(end);
         lend.setText("Reto");
         lend.setSize(75, 75);
-        lend.setLocation(625, 500);
+        lend.setLocation(640, 500);
         pane.add(lend);
 
         dice = new JButton("Dice");
@@ -88,18 +100,6 @@ public class Interface extends JFrame implements ActionListener{
         labelGame3.setLocation(650, 200);
         labelGame3.setFont(new Font("Girassol",Font.PLAIN,18));
         pane.add(labelGame3);
-
-        imagJug1= new ImageIcon("src/Images_Datos/fichajugador.png");
-        jug1 = new JLabel(imagJug1);
-        jug1.setSize(30,30);
-        jug1.setLocation(10,10);
-        pane.add(jug1);
-
-        imagJug2= new ImageIcon("src/Images_Datos/fichajugador1.png");
-        jug2 = new JLabel(imagJug2);
-        jug2.setSize(30,30);
-        jug2.setLocation(10,40);
-        pane.add(jug2);
 
         setResizable(false);
         pane.repaint();
