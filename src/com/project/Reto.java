@@ -18,7 +18,6 @@ public class Reto extends JFrame implements ActionListener {
     JButton ask;
     public int x, y;
     public double retoNum, res;
-    public boolean aciertoReto;
     String reto = "";
     public boolean notUsed = true;
 
