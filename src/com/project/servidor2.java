@@ -15,7 +15,6 @@ public class servidor2 implements Runnable{
     public void run() {
             try {
                 socketServer = new ServerSocket(9090);
-                System.out.println("Servidor Activo");
                 infoPack receivedPack;
                 socketC = socketServer.accept();
                 System.out.println("Cliente aceptado ");
@@ -29,14 +28,12 @@ public class servidor2 implements Runnable{
                     else{
                         receivedPack.setAcierto(false);
                     }
-                    System.out.println("La respuesta es "+ receivedPack.isAcierto());
                     ObjectOutputStream answerPack = new ObjectOutputStream(socketC.getOutputStream());
                     answerPack.writeObject(receivedPack);
-                    System.out.println("Cerrando servidor");
                     socketServer.close();
                 }
             } catch (Exception n) {
-                System.out.println(n.getMessage());
+                n.getMessage();
             }
     }
 }

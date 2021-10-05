@@ -8,6 +8,8 @@ import java.util.Random;
 
 public class Interface extends JFrame implements ActionListener{
 
+    ImageIcon start;
+    ImageIcon end;
     ImageIcon imagJug1;
     ImageIcon imagJug2;
     public JPanel pane;
@@ -17,11 +19,14 @@ public class Interface extends JFrame implements ActionListener{
     public JLabel labelGame1;
     public JLabel labelGame2;
     public JLabel labelGame3;
+    public JLabel lstart;
+    public JLabel lend;
     public static JLabel jug2;
     public static JLabel jug1;
     public int dice_result;
     public ImageIcon imagBack;
     private int jugador = 1;
+
 
     public Interface(){
         imagBack = new ImageIcon("src/Images_Datos/exit_icon.png");
@@ -33,6 +38,20 @@ public class Interface extends JFrame implements ActionListener{
         this.getContentPane().add(pane);
         pane.setLayout(null);
         pane.setBackground(Color.decode("#bad5ff"));
+
+        start = new ImageIcon("src" + Main.divider + "Images_Datos" + Main.divider + "start.png");
+        lstart = new JLabel(start);
+        lstart.setText("Reto");
+        lstart.setSize(75, 75);
+        lstart.setLocation(10, 10);
+        pane.add(lstart);
+
+        end = new ImageIcon("src" + Main.divider + "Images_Datos" + Main.divider + "end.png");
+        lend = new JLabel(end);
+        lend.setText("Reto");
+        lend.setSize(75, 75);
+        lend.setLocation(625, 500);
+        pane.add(lend);
 
         dice = new JButton("Dice");
         dice.setSize(80,50);
@@ -94,19 +113,16 @@ public class Interface extends JFrame implements ActionListener{
             Random diceR = new Random();
             dice_result = 1 + diceR.nextInt(4);
             labelDice.setText(String.valueOf(dice_result));
-            Main.lista.elements.moveForward(dice_result, jugador);
+            Main.home.lista.elements.moveForward(dice_result, jugador);
             if (jugador==1){
                 jugador++;
             } else {
                 jugador--;
             }
         }else if (e.getSource() == back){
+            Main.home.example.dispose();
             Main.home.setVisible(true);
-            if (Main.example==null){
-                System.out.println("Soy other y estoy vacio ");;
-            }else {
-                Main.example.setVisible(false);
-            }
+
         }
     }
 }
@@ -123,6 +139,8 @@ class Home extends JFrame implements ActionListener{
     public ImageIcon imagTitle;
     public String s_player1;
     public String s_player2;
+    public static Interface example;
+    public static Lista lista;
 
     public Home() {
         setTitle("Math Challenge");
@@ -187,12 +205,10 @@ class Home extends JFrame implements ActionListener{
                 e_player1.setText(null);
                 e_player2.setText(null);
 
-                System.out.println("Jugador 1");
-                System.out.println(s_player1);
-                System.out.println("Jugador 2");
-                System.out.println(s_player2);
-
-                Main.example.setVisible(true);
+                example = new Interface();
+                example.setVisible(true);
+                lista = new Lista();
+                lista.create();
 
                 Main.home.setVisible(false);
             }
